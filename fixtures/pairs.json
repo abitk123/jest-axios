@@ -1,0 +1,16 @@
+[
+    {
+        "name": "BTCLTC",
+        "base": "BTC",
+        "quote": "LTC",
+        "fee_ask": "0.00100000",
+        "fee_bid": "0.00100000"
+    },
+    {
+        "name": "BTCETH",
+        "base": "BTC",
+        "quote": "ETH",
+        "fee_ask": "0.00100000",
+        "fee_bid": "0.00100000"
+    }
+]

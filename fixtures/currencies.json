@@ -1,0 +1,24 @@
+[
+    {
+        "code": "BTC",
+        "name": "bitcoin",
+        "min_confirmations": 1,
+        "is_crypto": true,
+        "minimal_amount": "0.01000000",
+        "is_base_of_enabled_pair": true,
+        "is_quote_of_enabled_pair": true,
+        "has_enabled_pairs": true,
+        "withdrawal_fee": "0.00250000"
+    },
+    {
+        "code": "LTC",
+        "name": "litecoin",
+        "min_confirmations": 6,
+        "is_crypto": true,
+        "minimal_amount": "0.50000000",
+        "is_base_of_enabled_pair": true,
+        "is_quote_of_enabled_pair": true,
+        "has_enabled_pairs": true,
+        "withdrawal_fee": "0.00010000"
+    }
+]
