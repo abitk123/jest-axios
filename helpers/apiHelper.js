@@ -17,8 +17,13 @@ async function getPairs() {
   return axios.get(`${mock}/pair/`);
 }
 
+async function getRate(rate_id) {
+  return axios.get(`${mock}/rate/${rate_id}`);
+}
+
 module.exports = {
   createUser,
   getCurrency,
-  getPairs
+  getPairs,
+  getRate
 };

@@ -1,0 +1,27 @@
+name: Jest CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Jest CI
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'node'
+
+    - name: Install dependencies
+      run: |
+        npm install jest axios faker --save-dev
+        npm install
+
+    - name: Run tests
+      run: npm run test
