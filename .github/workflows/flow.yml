@@ -20,8 +20,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install jest axios faker --save-dev
-        npm install
+        npm install jest axios --save-dev
+        npm i @faker-js/faker
 
     - name: Run tests
       run: npm run test
