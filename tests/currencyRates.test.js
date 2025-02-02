@@ -19,7 +19,7 @@ describe("API tests for currency rates", () => {
     const rate_id = "PINDUF8";
     const response = await getRate(rate_id);
     expect(response.status).toBe(200);
-    expect(response.data.rate_id).toEqual(pair);
+    expect(response.data.rate_id).toEqual(rate_id);
     expect(response.data.ticker).toHaveProperty("ask");
     expect(response.data.ticker).toHaveProperty("bid");
   });
