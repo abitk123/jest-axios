@@ -3,6 +3,7 @@ const {
   getPairs,
   getRate,
   getLatestPrice,
+  getPriceInfoList
 } = require("../helpers/apiHelper");
 const { dataComparison } = require("../fixtures/dataComparison");
 const currencies = require("../fixtures/currencies.json");
@@ -40,4 +41,22 @@ describe("API tests for currency rates", () => {
     expect(response.data[0].ticker).toHaveProperty("ask");
     expect(response.data[0].ticker).toHaveProperty("bid");
   });
+
+  it("returns price info list with correct properties all of string type", async () => {
+    const response = await getPriceInfoList();
+    expect(response.status).toBe(200);
+
+    const requiredProperties = [
+        "pair", "rate_id", "from", "to", "rate", "max_amount", "min_amount",
+        "max_receive_amount", "min_receive_amount", "max_deposit_amount", "min_deposit_amount"
+    ];
+
+    response.data.forEach(priceInfo => {
+        requiredProperties.forEach(prop => {
+            expect(priceInfo).toHaveProperty(prop);
+            expect(typeof priceInfo[prop]).toBe('string');
+        });
+    });
+});
+
 });

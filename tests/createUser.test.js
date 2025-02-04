@@ -22,21 +22,17 @@ describe("API tests for user creation", () => {
     userDataWithInvalidEmail = generateUserDataWithInvalidEmail();
   });
   it("creates a user successfully", async () => {
-    try {
-      const response = await createUser(fakeUser);
-      expect(response.status).toBe(201);
-      expect(response.data).toEqual(
-        expect.objectContaining({
-          username: fakeUser.username,
-          email: fakeUser.email,
-          phone: null,
-          country: null,
-          is_custody: false,
-        })
-      );
-    } catch (error) {
-      console.error("Error creating user:", error);
-    }
+    const response = await createUser(fakeUser);
+    expect(response.status).toBe(201);
+    expect(response.data).toEqual(
+      expect.objectContaining({
+        username: fakeUser.username,
+        email: fakeUser.email,
+        phone: null,
+        country: null,
+        is_custody: false,
+      })
+    );
   });
 
   it("handles non-unique username and email", async () => {

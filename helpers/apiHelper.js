@@ -25,10 +25,15 @@ async function getLatestPrice(ticker) {
   return axios.get(`${prod}/price/${ticker}/latest/`);
 }
 
+async function getPriceInfoList() {
+  return axios.get(`${prod}/info/bulk/`);
+}
+
 module.exports = {
   createUser,
   getCurrency,
   getPairs,
   getRate,
-  getLatestPrice
+  getLatestPrice,
+  getPriceInfoList
 };
