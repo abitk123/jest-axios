@@ -13,16 +13,28 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Jest CI
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 'node'
+        node-version: 'node'  
 
     - name: Install dependencies
       run: |
+        npm install
         npm install jest axios --save-dev
         npm i @faker-js/faker
-        npm install moment moment-timezone
+        npm install moment moment-timezone --save-dev
+        npm install jest-html-reporter jest-allure --save-dev
+        npm install allure-commandline --save-dev 
 
     - name: Run tests
       run: npm run test
+
+    - name: Generate Allure report
+      run: npx allure generate --clean
+
+    - name: Publish Allure report
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-report
+        path: allure-report
